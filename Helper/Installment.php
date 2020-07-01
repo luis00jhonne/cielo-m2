@@ -90,11 +90,11 @@ class Installment extends \Magento\Framework\App\Helper\AbstractHelper
 
             if ($installment['installment_frequency'] != '' && $installment['installment_boundary'] != '') {              
                 $frequency = $installment['installment_frequency'];
-                $installmetnAmount = $amount / $installment['installment_frequency']; 
+                $installmentAmount = $amount / $frequency; 
 
-                if ($installmetnAmount >= $installment['installment_boundary']) {
+                if ($amount >= $installment['installment_boundary']) {
 
-                    $result[(string)$frequency] = $frequency . "x " . $this->formatPrice($installmetnAmount + 3, false);
+                    $result[(string)$frequency] = $frequency . "x " . $this->formatPrice($installmentAmount + 3, false);
                 }
             } 
         }
